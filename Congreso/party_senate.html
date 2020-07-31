@@ -1,0 +1,177 @@
+<! DOCTYPE HTML>
+    <html>
+
+    <head>
+        <title>Party_Senate</title>
+        <link rel=StyleSheet href="medida.css" type="text/css" media=screen>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+ 
+    <body>
+        
+            <div class="container" id="vue">
+                <div class="row justify-content-between">
+                    <div class="col col-sm-4">
+                        <img src="Imagenes/lupa.jpg" alt="logo" class="logo">
+                    </div>
+
+                    <div class="col col-sm-4">
+                        <img src="Imagenes/carta.jpg" alt="carta" class="carta" class="margend">
+
+                    </div>
+                </div>
+                <br />
+                <!---->
+                <div class="row">    
+                    <div class=" col col-12">
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary"><a href="home.html" class="letra">Home</a></button>
+            
+                            <div class="btn-group" role="group">
+            
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Congress 113
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="senate.html">Senate</a>
+                                    <a class="dropdown-item" href="house.html">House</a>
+                                </div>
+                            </div>
+            
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Attendance
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="attendance_senate.html">Senate</a>
+                                    <a class="dropdown-item" href="attendance_house.html">House</a>
+                                </div>
+                            </div>
+            
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Party Loyalty
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="party_senate.html">Senate</a>
+                                    <a class="dropdown-item" href="party_house.html">House</a>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>    
+                </div>
+                <!---->
+                <br />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h2>Party Loyalty</h2>
+                        <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+                    </div>
+                    <!---->
+                    <div class="col-sm-12 col-md-6">
+                        <h2>Senate at a glance</h2>
+                        <table border="5px" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Party</th>
+                                    <th>Number of Reps</th>
+                                    <th>% Voted with Prty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Republican</td>
+                                    <td>{{republicano.length}}</td>
+                                    <td>{{votosrep}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Democrat</td>
+                                    <td>{{democrata.length}}</td>
+                                    <td>{{votosdem}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Independent</td>
+                                    <td>{{independiente.length}}</td>
+                                    <td>{{votosind}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+                <!---->
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h3>Least Loyal (Bottom 10% of Party)</h3>
+                        <table border="5px" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Number Party Votes</th>
+                                    <th>% Party Votes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="x in votan_menos">
+                                    <td>{{x.first_name}} {{x.last_name}}</td>
+                                    <td>{{x.missed_votes}}</td>
+                                    <td>{{x.missed_votes_pct}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <h3>Most Loyal (Top 10% Of Party)</h3>
+                        <table border="5px" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Number Party Votes</th>
+                                    <th>% Party Votes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="x in votan_mas">
+                                    <td>{{x.first_name}} {{x.last_name}}</td>
+                                    <td>{{x.missed_votes}}</td>
+                                    <td>{{x.missed_votes_pct}}</td>
+                                </tr>
+                            </tbody>
+                        </table>                    
+                    </div>
+                </div>
+                <!---->
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-dark" role="alert">
+                            <p class="margenc">2016 TGIF | All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+        <!--Hoja de JS de tarea N°4-->
+        <script src="js/estadistica_attendance.js"></script>
+
+    </body>
+
+    </html>

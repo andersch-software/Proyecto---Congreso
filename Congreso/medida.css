@@ -1,0 +1,29 @@
+.logo{
+    width:10vh;
+    height:10vh;
+}
+
+.carta{
+    width:20vh;
+    height:20vh;
+}
+
+.imagen{
+    width:40vh;
+    height:40vh;
+}
+
+.margend{
+    text-align:right;
+   
+}
+.margeni{
+    text-align:left;
+}
+.margenc{
+    text-align:center;
+}
+
+.letra{
+    color:white;
+}
